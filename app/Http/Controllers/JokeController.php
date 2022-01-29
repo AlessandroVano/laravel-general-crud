@@ -39,6 +39,14 @@ class JokeController extends Controller
     {
         $data = $request->all();
         dump($data);
+
+        $new_joke = new joke();
+
+        $new_joke->fill($data);
+
+        $new_joke->save();
+
+        return redirect()->route('jokes.index', $new_joke->id);
     }
 
     /**
