@@ -26,7 +26,7 @@ class JokeController extends Controller
      */
     public function create()
     {
-        //
+      return view('jokes.create');
     }
 
     /**
@@ -37,7 +37,8 @@ class JokeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        dump($data);
     }
 
     /**
