@@ -7,12 +7,14 @@
        
           @foreach ($jokes as $joke)
           <div class="card mb-5 m-3 " style="width: 18rem;">
-              <h1>{{ $joke->id }}</h1>
+              <h1>{{ $joke->id }}</h1> 
               <h2>{{ $joke->author }}</h2>
               <div class="card-body"></div>
             <h4 class="card-title">{{ $joke->title }}</h3>
          {{--    <p class="card-text">{{ $joke->body }}</p>  --}}
             <a  href="{{ route('jokes.show', $joke->id) }}" class="btn btn-primary mb-3">clicca per scoprire</a>
+
+            <a  href="{{ route('jokes.edit', $joke->id) }}" class="btn btn-primary mb-3">clicca per modificare</a>
            
           </div>
         

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container-fluid">
+
     <div class="container">
         <div class="row">
             <div class="col-4">
@@ -26,6 +26,6 @@
             </div>
         </div>
     </div>
-</section>
+
     
 @endsection

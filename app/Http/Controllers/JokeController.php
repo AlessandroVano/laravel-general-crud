@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\joke;
+use App\Joke;
 class JokeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class JokeController extends Controller
      */
     public function index()
     {
-            $jokes = joke::all();
+            $jokes = Joke::all();
            /*  dump($jokes); */
     
             return view('jokes.index', compact('jokes'));
@@ -40,7 +40,7 @@ class JokeController extends Controller
         $data = $request->all();
         dump($data);
 
-        $new_joke = new joke();
+        $new_joke = new Joke();
 
         $new_joke->fill($data);
 
@@ -57,7 +57,7 @@ class JokeController extends Controller
      */
     public function show($id)
     {
-        $jokes = joke::find($id);
+        $jokes = Joke::find($id);
        /*  dump($jokes); */
 
         if($jokes) {
@@ -74,7 +74,13 @@ class JokeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jokes = Joke::find($id); 
+
+        // passaggio alla form
+        if($jokes) {
+            return view('jokes.edit', compact('jokes'));
+        }
+        abort(404);
     }
 
     /**
@@ -86,7 +92,16 @@ class JokeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        // 1. OTTENERE IL RECORD DA AGGIORNARE
+         $jokes = Joke::find($id); 
+
+        //2. AGGIORNARE LE COLONNE
+        $jokes->update($data);
+
+        // redirect
+
+        return redirect()->route('jokes.index', $jokes->id);
     }
 
     /**
