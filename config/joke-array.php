@@ -16,4 +16,5 @@ return [
         "title"  => "Qual'è il colmo per un disoccupato?",
         "body"  => "Chiamarsi Assunto"
     ],
+    
 ];
