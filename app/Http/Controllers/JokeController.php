@@ -116,6 +116,6 @@ class JokeController extends Controller
 
         $jokes->delete();
 
-        return redirect()->route('jokes.show')->with('deleted jokes number', $jokes->id);
+        return redirect()->route('jokes.index')->with('deleted jokes number', $jokes->id);
     }
 }
