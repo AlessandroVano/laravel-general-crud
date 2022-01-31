@@ -112,6 +112,10 @@ class JokeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jokes = Joke::find($id);
+
+        $jokes->delete();
+
+        return redirect()->route('jokes.show')->with('deleted jokes number', $jokes->id);
     }
 }
